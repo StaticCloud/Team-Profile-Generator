@@ -1,7 +1,5 @@
 const Manager = require('../lib/Manager');
 
-jest.mock('../lib/Employee');
-
 test('creates a manager object', () => {
     const manager = new Manager('', 0, '', 0);
 
