@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager')
 
 // ask the user if they would like to add an employee
 const run = () => {
@@ -35,7 +36,38 @@ const getEmployee = () => {
             choices: ['Manager', 'Engineer', 'Intern']
         }
 
-    ])
+    ]).then(({name, email, role}) => {
+        // ask the user about office number, github, or school depending on the role
+        switch (role) {
+            case 'Manager':
+                inquirer.prompt(
+                    {
+                        type: 'number',
+                        name: 'officeNumber',
+                        message: "What is the manager's office number?"
+                    }
+                ).then(run)
+                break;
+            case 'Engineer':
+                inquirer.prompt(
+                    {
+                        type: 'input',
+                        name: 'github',
+                        message: "What is the engineer's GitHub username?"
+                    }
+                ).then(run)
+                break;
+            case 'Intern':
+                inquirer.prompt(
+                    {
+                        type: 'input',
+                        name: 'school',
+                        message: "Where does the intern go to school?"
+                    }
+                ).then(run)
+                break;
+        }
+    })
 }
 
 run();
