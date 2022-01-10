@@ -1,8 +1,17 @@
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager')
+const Engineer = require('./lib/Engineer')
+const Intern = require('./lib/Intern')
+
+var employeeId = 1;
+
+// employee data
+var managers = [];
+var engineers = [];
+var interns = [];
 
 // ask the user if they would like to add an employee
-const run = () => {
+const employeePrompt = () => {
     inquirer.prompt({
         type: 'confirm',
         name: 'addEmployee',
@@ -46,7 +55,7 @@ const getEmployee = () => {
                         name: 'officeNumber',
                         message: "What is the manager's office number?"
                     }
-                ).then(run)
+                ).then(({ officeNumber }) => addManager(new Manager(name, employeeId, email, officeNumber)))
                 break;
             case 'Engineer':
                 inquirer.prompt(
@@ -55,7 +64,7 @@ const getEmployee = () => {
                         name: 'github',
                         message: "What is the engineer's GitHub username?"
                     }
-                ).then(run)
+                ).then(({ github }) => addEngineer(new Engineer(name, employeeId, email, github)))
                 break;
             case 'Intern':
                 inquirer.prompt(
@@ -64,10 +73,29 @@ const getEmployee = () => {
                         name: 'school',
                         message: "Where does the intern go to school?"
                     }
-                ).then(run)
+                ).then(({ school }) => addIntern(new Intern(name, employeeId, email, school)))
                 break;
         }
     })
 }
 
-run();
+// add managers, engineer, or interns to the lists for appending to the page
+const addManager = manager => {
+    managers.push(manager);
+    console.log(managers);
+    employeePrompt();
+}
+
+const addEngineer = engineer => {
+    engineers.push(engineer);
+    console.log(engineers);
+    employeePrompt();
+}
+
+const addIntern = intern => {
+    interns.push(intern);
+    console.log(interns);
+    employeePrompt();
+}
+
+employeePrompt();
