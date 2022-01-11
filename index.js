@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
+const { generateProfile } = require('./src/generateProfile')
 
 var employeeId = 1;
 
@@ -21,6 +22,8 @@ const employeePrompt = () => {
         // if so, begin prompting the user for employee info
         if (addEmployee) {
             getEmployee();
+        } else {
+            console.log(generateProfile(managers, engineers, interns))
         }
     })
 }

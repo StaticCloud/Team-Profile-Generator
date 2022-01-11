@@ -1,9 +1,9 @@
 const fs = require('fs');
+const { generateSection } = require('./generateSection')
 
 // function that generates HTML profile page.
 const generateProfile = (managers, engineers, interns) => {
-    return 
-    `<!DOCTYPE html>
+    return `<!DOCTYPE html>
     <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -17,7 +17,7 @@ const generateProfile = (managers, engineers, interns) => {
                 <div class="uk-container">
                     <h3>Managers</h3>
                     <div id="manager-section" class="uk-flex uk-flex-between">
-
+                        ${generateSection(managers)}
                     </div>
                 </div>
             </section>
@@ -26,7 +26,7 @@ const generateProfile = (managers, engineers, interns) => {
                 <div class="uk-container">
                     <h3>Engineers</h3>
                     <div id="engineer-section" class="uk-flex uk-flex-between">
-                        
+                        ${generateSection(engineers)}
                     </div>
                 </div>
             </section>
@@ -35,7 +35,7 @@ const generateProfile = (managers, engineers, interns) => {
                 <div class="uk-container">
                     <h3>Interns</h3>
                     <div id="intern-section" class="uk-flex uk-flex-between">
-
+                        ${generateSection(interns)}
                     </div>
                 </div>
             </section>
@@ -43,3 +43,5 @@ const generateProfile = (managers, engineers, interns) => {
         </body>
     </html>`;
 }
+
+module.exports = { generateProfile };
