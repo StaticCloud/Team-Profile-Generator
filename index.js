@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
-const { generateProfile } = require('./src/generateProfile')
+const { generateProfile, writeProfile } = require('./src/generateProfile')
 
 var employeeId = 1;
 
@@ -23,7 +23,7 @@ const employeePrompt = () => {
         if (addEmployee) {
             getEmployee();
         } else {
-            console.log(generateProfile(managers, engineers, interns))
+            writeProfile(generateProfile(managers, engineers, interns))
         }
     })
 }
@@ -54,7 +54,7 @@ const getEmployee = () => {
             case 'Manager':
                 inquirer.prompt(
                     {
-                        type: 'number',
+                        type: 'input',
                         name: 'officeNumber',
                         message: "What is the manager's office number?"
                     }
@@ -86,18 +86,21 @@ const getEmployee = () => {
 const addManager = manager => {
     managers.push(manager);
     console.log(managers);
+    employeeId++;
     employeePrompt();
 }
 
 const addEngineer = engineer => {
     engineers.push(engineer);
     console.log(engineers);
+    employeeId++;
     employeePrompt();
 }
 
 const addIntern = intern => {
     interns.push(intern);
     console.log(interns);
+    employeeId++;
     employeePrompt();
 }
 

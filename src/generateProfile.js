@@ -44,4 +44,8 @@ const generateProfile = (managers, engineers, interns) => {
     </html>`;
 }
 
-module.exports = { generateProfile };
+const writeProfile = data => {
+    fs.writeFile('./dist/index.html', data, err => { if (err) { console.log(err) } else { console.log('Profile created!') } })
+}
+
+module.exports = { generateProfile, writeProfile };
