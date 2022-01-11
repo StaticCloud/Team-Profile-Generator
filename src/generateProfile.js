@@ -16,7 +16,7 @@ const generateProfile = (managers, engineers, interns) => {
             <section class="uk-section">
                 <div class="uk-container">
                     <h3>Managers</h3>
-                    <div id="manager-section" class="uk-flex uk-flex-between">
+                    <div id="manager-section" class="uk-flex uk-flex-wrap">
                         ${generateSection(managers)}
                     </div>
                 </div>
@@ -25,7 +25,7 @@ const generateProfile = (managers, engineers, interns) => {
             <section class="uk-section">
                 <div class="uk-container">
                     <h3>Engineers</h3>
-                    <div id="engineer-section" class="uk-flex uk-flex-between">
+                    <div id="engineer-section" class="uk-flex uk-flex-wrap">
                         ${generateSection(engineers)}
                     </div>
                 </div>
@@ -34,7 +34,7 @@ const generateProfile = (managers, engineers, interns) => {
             <section class="uk-section">
                 <div class="uk-container">
                     <h3>Interns</h3>
-                    <div id="intern-section" class="uk-flex uk-flex-between">
+                    <div id="intern-section" class="uk-flex uk-flex-wrap">
                         ${generateSection(interns)}
                     </div>
                 </div>
