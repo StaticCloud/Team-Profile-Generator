@@ -44,6 +44,7 @@ const generateProfile = (managers, engineers, interns) => {
     </html>`;
 }
 
+// write the HTML file to /dist/
 const writeProfile = data => {
     fs.writeFile('./dist/index.html', data, err => { if (err) { console.log(err) } else { console.log('Profile created!') } })
 }

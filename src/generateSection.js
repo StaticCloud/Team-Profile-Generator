@@ -8,7 +8,7 @@ const generateSection = data => {
                 <p class="uk-text-meta">ID: ${employee.id}</p>
             </div>
             <div class="uk-card-body">
-                <p>Email: ${employee.email}</p>
+                <p>Email: <a href="mailto: ${employee.email}">${employee.email}</a></p>
                 ${generateInfo(employee)}
             </div>
         </div>
