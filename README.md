@@ -14,5 +14,10 @@ cd Team-Profile-Generator
 npm install inquirer
 ```
 
+Run with:
+```
+node index
+```
+
 ## Walkthrough
 [Click here for a walkthrough of the application.](https://youtu.be/gJoCJPDMNHg)
