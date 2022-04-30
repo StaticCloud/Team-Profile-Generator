@@ -21,3 +21,6 @@ node index
 
 ## Walkthrough
 [Click here for a walkthrough of the application.](https://youtu.be/gJoCJPDMNHg)
+
+## Overview
+![preview](./TPGOverview.png)
